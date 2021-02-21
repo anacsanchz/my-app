@@ -97,9 +97,9 @@ const NewPost = () => {
                     <PostInputs type="text" name="body" onChange={onChangeText} value={formValues.body} placeholder="Post Description" />
                     {errorBody && <p>La descripcion debe tener mas de 10 letras</p>}
 
-                    <InputFile type="file"
+                    {/* <InputFile type="file"
                         id="postImage" name="postImage "
-                        accept="image/png, image/jpeg"></InputFile>
+                        accept="image/png, image/jpeg"></InputFile> */}
                     <PostButton onClick={savePost}>OK</PostButton>
                 </PostContent>
                 <CloseModal onClick={closeModal}>x</CloseModal>
