@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-
+import { GoogleLogout } from 'react-google-login';
 import {
     Container,
-    LoginButton
+    LogoutContainer,
+    UserName
 } from './styles'
-
+import { clientId } from '../google-login-button/google-login-button'
 import logo from '../../logo.png'
 
 const Header = () => {
@@ -19,17 +20,13 @@ const Header = () => {
 
         const parsedUser = JSON.parse(userRaw)
 
-        return `${parsedUser?.givenName} ${parsedUser?.familyName}`
+        return <UserName>{`${parsedUser?.givenName} ${parsedUser?.familyName}`}</UserName>
     }
 
     const authentication = () => {
-        if (isLogged) {
-            setIsLogged(false)
-            return localStorage.removeItem('user')
-        }
-
+        setIsLogged(false)
+        localStorage.removeItem('user')
         history.push("/login")
-
     }
 
     return (
@@ -37,10 +34,16 @@ const Header = () => {
             <div>
                 <img src={logo} alt="" width='50' />
             </div>
-            <div>
+            <LogoutContainer>
                 {isLogged && getUserName()}
-                <LoginButton onClick={authentication}>{label}</LoginButton>
-            </div>
+                <GoogleLogout
+                    clientId={clientId}
+                    buttonText={label}
+                    onLogoutSuccess={authentication}
+                >
+                </GoogleLogout>
+                {/* <LoginButton onClick={authentication}>{label}</LoginButton> */}
+            </LogoutContainer>
 
         </Container>
     )

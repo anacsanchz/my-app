@@ -3,8 +3,7 @@ import GoogleLogin from 'react-google-login'
 import { useHistory } from 'react-router-dom'
 
 
-const clientId = "542587503453-ernv8rnr56qetrvb3e7emc162isdt8qa.apps.googleusercontent.com"
-
+export const clientId = "542587503453-ernv8rnr56qetrvb3e7emc162isdt8qa.apps.googleusercontent.com"
 
 const GoogleLoginButton = () => {
 
@@ -24,7 +23,7 @@ const GoogleLoginButton = () => {
         <div>
             <GoogleLogin
                 clientId={clientId}
-                buttonText="Login"
+                buttonText="Log In"
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}

@@ -4,9 +4,6 @@ import {
     Container,
     LoginBox,
     InputsGroup,
-    Input,
-    LoginButton,
-    FacebookLogin,
 } from './styles'
 
 
@@ -18,12 +15,7 @@ const Login = () => {
             <LoginBox>
                 <img src={logo} alt="" width="100" />
                 <InputsGroup>
-                    <Input type="text" placeholder="User or Email" />
-                    <Input type="text" placeholder="Password" />
-                    <LoginButton>Log In</LoginButton>
-                    <p>-</p>
                     <GoogleLoginButton />
-                    <FacebookLogin>Log in with Facebook</FacebookLogin>
                 </InputsGroup>
             </LoginBox>
         </Container>

@@ -1,39 +1,27 @@
 import './App.css';
 import Home from './routes/home/home'
 import Login from './routes/login/login'
+import PrivateRoute from './routes/private-route/private-route'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom"
 
-function App() {
+const App = () => {
   return (
     <Router>
       <div>
-        {/* <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/login">login</Link>
-            </li>
-          </ul>
-        </nav> */}
-
         <Switch>
           <Route path="/login">
             <Login />
-          </Route> 
-          <Route path="/">
-            <Home />
           </Route>
+          <PrivateRoute path="/">
+            <Home />
+          </PrivateRoute>
         </Switch>
       </div>
     </Router>
-
   );
 }
 

@@ -45,8 +45,6 @@ const NewPost = () => {
     }
 
     const onChangeText = (e) => {
-        console.log(e.target.name)
-        console.log(e.target.value)
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
 
